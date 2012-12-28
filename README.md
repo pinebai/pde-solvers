@@ -1,7 +1,7 @@
 pde-solvers
 ===========
 
-These are some of the big c++ research codes I wrote in my past life as a scientist at LLNL.
+These are some of the big c++ research codes I wrote in my past life as a scientist at LLNL. These versions are no longer actively maintained.
 
 This repository contains discretized partial differential equation (PDE) solvers for problems arising in fluid dynamics, cell biology and finance. 
 
