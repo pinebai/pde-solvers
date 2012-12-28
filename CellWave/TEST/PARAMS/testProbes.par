@@ -1,0 +1,8 @@
+#
+# test parameter file for reading in probes -- see testProbes.C
+#
+
+probe location filename=PARAMS/testProbes.probes
+probe output filename  =OUT/testProbes.sequence
+probe frequency        =1
+

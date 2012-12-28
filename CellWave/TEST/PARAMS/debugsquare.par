@@ -1,0 +1,77 @@
+parameter file type = LiRinzelWagner 
+ode output filename =  out_lirinzel.dat
+comment = "none"
+#..time stepping parameters
+
+number of timesteps = 100
+#number of timesteps = 500
+save frequency       = 1
+maximum timestep    = 0.1
+#time stepper        = FE
+time stepper        =  AB2
+
+#..grid parameters
+name of grid file = Grids/square300um.hdf
+name of show file = OUT/square02.show
+
+#name of grid file = Grids/oocyte_1000_um.hdf
+#name of show file = OUT/debug_ooc3.show
+
+#..biological model parameters
+calcium rescale     =  1.0  # no scaling
+
+  #....initial data
+  calcium_0  = 0.1153   # micro M
+#  ip3_0       =0.05
+  ip3_0      = 0.12     # micro M
+#   ip3_0      = 0.3
+  h_0        = 0.93     # nondimensional
+
+    #....initial data: IP3 blob
+#    blobMin_p    = 
+    blobMax_p    =  1.1
+    xBlob_p      =  100. 
+    yBlob_p      =  100.
+    zBlob_p      =  0.
+    blobWidth_p  =  100
+
+    #....initial data:Ca2+ blob
+  blobMin_c  = 0.1153
+  blobMax_c  =   2.
+  xBlob_c    =  -200.
+  yBlob_c    =    0.
+  zBlob_c    =    0.
+  blobWidth_c=    40.
+
+  #....rxn parameters
+    nu_L       = 4e-3  # nondimensional
+    d_I        = 0.025 # micro M  = d1
+    k_p        = 0.4   # micro M
+    nu_P       = 0.1   # micro M
+#    nu_P       = 0.1   # micro M
+    I_s        = 0.12  # micro M
+    C_er       = 10.   # micro M
+    tau_0      = 4.    # sec
+    d_act      = 1.2   # micro M = d5
+        diffCalcium= 300.  # micro m^2/sec
+    #diffCalcium =0. #TRY THIS
+
+    lambda     = 112.5 # 1/sec
+    #lambda     = 250    # 1/sec
+    beta       = 0.053 # nondimensional
+    d_inh      = 1.5   # micro M
+
+    # ..parameters NOT USED BY WAGNER et al
+    #    diffIP3    = 0. #300.;   # IP3 diffusion
+    # k_i        = 0. # 1/sec, IP3 degradation, 0=synthetic IP3S
+
+    #  diffIP3    = 300. #300.;   # IP3 diffusion
+    diffIP3    = 0. #300.;   # IP3 diffusion
+    k_i        = 0. # 1/sec, IP3 degradation, 0=synthetic IP3S
+
+    # .. one d parameters
+    npoints oned = 500
+    xbegin oned      = -500.
+    xend oned        = 500; 
+
+

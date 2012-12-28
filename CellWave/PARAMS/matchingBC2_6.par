@@ -1,0 +1,29 @@
+#
+# ..testDiffusion -- 2D resolution study
+#
+parameter file type= test diffusion
+
+interactive         = no
+output              = no
+
+#300 um matching squares
+name of grid file=Grids/matchingSquares2_4.hdf
+name of show file=OUT/tmatch_300um_2_6.show
+
+maximum timestep    = 0.1
+number of timesteps = 5000
+save frequency      = 50
+
+viscosity           = 300
+
+exact boundary conditions = no
+
+#..gaussian info -- move source towards right, and to the bottom
+time offset = 5
+x offset    = 100.
+y offset    = -150.
+z offset    = 0.
+total mass  = 1000
+
+
+

@@ -1,0 +1,40 @@
+File: caWagner.ode 
+
+ Equations... 
+dC/dT=F(C,H)
+dH/dT=G(C,H)/TAU_0
+
+User-defined functions:
+F(C,H) =  LAMBDA*BETA*( JFLUX(C,H) - JPUMP(C,H) )  
+G(C,H) =   (D_INH-(D_INH+C)*H )  
+JFLUX( C,H ) =  ( NU_L +(P/(P+D_I))^3*(C/(C+D_ACT))^3 * H^3 )*(C_ER - C)  
+JPUMP( C,H ) =  NU_P*C^2/(C^2 + K_P^2)  
+
+
+ Numerical parameters ...
+NJMP=1  NMESH=150 METHOD=Runge-Kutta EVEC_ITER=100 
+BVP_EPS=1e-05,BVP_TOL=1e-05,BVP_MAXIT=20 
+DT=0.1 T0=0 TRANS=0 TEND=150 BOUND=100 DELAY=0 MaxPts=4000
+EVEC_ERR=0.001, NEWT_ERR=0.001 HMIN=1e-12 HMAX=1 TOLER=0.001 
+POIMAP=0 POIVAR=C POIPLN=0 POISGN=1 
+
+
+ Delay strings ...
+0.0
+0.0
+
+
+ BCs ...
+0=0
+0=0
+
+
+ ICs ...
+C=0.5736433863639832
+H=0.8986347913742065
+
+
+ Parameters ...
+C_er=2.7   p=0.136   d_I=0.012   k_P=0.46   
+nu_L=0.0003   nu_P=0.02   tau_0=6   d_act=1.4   
+d_inh=1.235   lambda=200   beta=0.053   

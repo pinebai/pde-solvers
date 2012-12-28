@@ -1,0 +1,126 @@
+# linux with dynamic libraries (requires ecgs compiler)
+
+# these next values for compilers will be used unless overridden with an argument to configure
+cc = gcc
+##CC = g++
+CC = g++
+FC = ifort
+#FC = fort77
+
+#BOOST=/home/software/BOOST/boost_1_26_0
+#FLOWTOOLKIT = /home/pfast/PROJECTS/FlowToolkit/src
+
+FTKINCLUDES = -I$(FLOWTOOLKIT) -I$(BOOST)
+
+
+## NOTE: the order is important. You'll need to build blas & lapack
+#PETSC_INCLUDE= -DOVERTURE_USE_PETSC \
+#	       -I$(PETSC_DIR)/src/sys/src/mpiuni \
+#	       -I$(PETSC_DIR)/bmake/$(PETSC_ARCH) \
+#	       -I$(PETSC_DIR)/include 
+#PETSC_LIBRARIES= -L$(PETSC_LIBRARY_PATH) \
+#		 -lpetsc -lpetscsles -lpetscdm -lpetscmat \
+#		  -lpetscvec -lpetsc -lmpiuni -llapack -lblas
+##		  -L/usr/apps/pgi/3.2/linux86/lib -llapack -lblas
+PETSC_INCLUDE =
+PETSC_LIBRARIES = 
+
+IFC_LIB = -Wl,-rpath,/usr/apps/intel/fc_8.0.034/lib -L/usr/apps/intel/fc_8.0.034/lib -lifcoremt 
+
+# Here is where we can find the perl include files and library (CORE)
+OV_PERL_RPATH   =  -Wl,-rpath,
+OV_PERL_INCLUDE = /usr/apps/perl/5.8.3/lib/5.8.3/i686-linux-ld/CORE
+OV_PERL_LIB = /usr/apps/perl/5.8.3/lib/5.8.3/i686-linux-ld/CORE
+# Here are the perl libraries we need to link to
+OV_PERL_LIBRARIES = $(OV_PERL_RPATH)$(OV_PERL_LIB) -L$(OV_PERL_LIB) -lperl -lnsl -ldl -lm -lcrypt -lutil -lc
+
+
+A++ = $(APlusPlus)
+A+++ = $(APlusPlus)
+# AppLibraries = -L$(APlusPlus) -lA++ -lA++_static
+AppLibraries = -L$(APlusPlus)/lib -lApp -lApp_static 
+
+Include=  $(Overture)/include
+Lib=      $(Overture)/lib
+LibOverture= -lOverture -lOverture_static
+BOXLIB_DEFS = -DBL_USE_DOUBLE -DBL_Solaris
+
+# these next flags are compiler dependent
+cc_FLAGS = -fPIC
+CC_FLAGS = -fPIC  -fpermissive -Wno-deprecated 
+FF_FLAGS = -fPIC -I$(F2C_INCLUDE) -extend_source
+#fort77 -f == extended format (132 columns etc)
+#  CHANGED, now -extend_source extends to 132 columns
+
+# these next values will may be changed by the configure script
+C_OPTIMIZATION_FLAG = -g
+CPP_OPTIMIZATION_FLAG = -g
+FORTRAN_OPTIMIZATION_FLAG = -g
+
+CFLAGS =  $(cc_FLAGS)  -I$(Include)  $(C_OPTIMIZATION_FLAG) -I$(XLIBS) -DSHM
+# flags for c routines we always optimize
+CFLAGSO =  -O $(cc_FLAGS)  -I$(Include)  -I$(XLIBS) -DSHM
+
+# do not include some paths, such as STL in the places searched by makedepend (takes too long)
+CC_INCLUDES_FOR_DEPEND =  -I$(Include)  $(CPP_OPTIMIZATION_FLAG) -DINTEL86  -I$(APlusPlus)/include -I$(OpenGL)/include -I$(XLIBS)/include  $(BOXLIB_DEFS)
+
+STL_INCLUDE = 
+CC_INCLUDES = $(CC_FLAGS) $(CC_INCLUDES_FOR_DEPEND) $(STL_INCLUDE)
+
+##CCFLAGS= $(CC_INCLUDES) $(CPP_OPTIMIZATION_FLAG) -Wno-deprecated
+#CCFLAGS= $(PETSC_INCLUDE) $(CC_INCLUDES) $(CPP_OPTIMIZATION_FLAG)
+CCFLAGS= $(EXTRA_FLAGS) $(CC_INCLUDES) $(CPP_OPTIMIZATION_FLAG)
+
+
+# things that are always compile with optimization use this flag
+CCFLAGSO= $(CC_INCLUDES) -O
+
+# things that need to be compiled with no optimization use the following
+CCFLAGSG= $(CC_INCLUDES) -g
+
+# Notes: There seems to be problems using -O with g77
+#        Some older versions of the egcs compiler also had trouble with -fPIC, removing it seemed to work.
+FFLAGS=    $(FF_FLAGS)   -r8 $(FORTRAN_OPTIMIZATION_FLAG) -I$(Include)
+# single precision always:
+FFLAGSS=  $(FF_FLAGS)  $(FORTRAN_OPTIMIZATION_FLAG)  -I$(Include)
+FFLAGSSO = ${FF_FLAGS}  -I$(Include) -O
+FFLAGSO = $(FF_FLAGS)  -r8 -O -I$(Include)
+
+# things that are always compile with optimization use these flags
+FFLAGSO= -O $(FF_FLAGS)  -r8  $(FFLAGS) -I$(Include) 
+FFLAGSSO= -O  $(FF_FLAGS)  $(FFLAGS) -I$(Include)
+
+
+FORTRAN_LIBS = 
+#FORTRAN_LIBS =-lnsl -lg2c
+FORTRAN_LIBS = $(IFC_LIB)
+
+LIB_TARGETS= lib_date libso_date
+LIB_DEPENDENCIES= ../lib/lib_date
+TEMPLATES=  
+
+# The KCC compiler should be used to build the static library (for templates)
+AR = ar
+#KCC AR = KCC
+ARFLAGS = ruv  
+#KCC ARFLAGS = -o 
+
+LD = $(CC)
+LDFLAGS = -Wl,-rpath $(Overture)/lib
+RANLIB = ranlib
+SOFLAGS = -shared
+OpenGLibs =-lGL -lGLU -lGLw -lOSMesa
+GLIBS=   $(OV_PERL_LIBRARIES) -L$(OpenGL)/lib $(OpenGLibs) -L$(HDF)/lib -lmfhdf -ldf -ljpeg -lz -L$(MOTIF)/lib -lXm  -lXpm -lXp -L$(XLIBS)/lib -lXt -lXmu -lXi -lXext -lX11 -lm
+#
+#
+# Primer examples:
+#    type `make programName' to make the example called `programName', see the
+#       possible program names below
+#    type `make' to make all examples
+#
+
+
+# dp: FFLAGS = -r8 -i4
+CLIBS=  $(EXTRA_LIBS) $(LDFLAGS) -L$(Overture)/lib $(LibOverture) $(AppLibraries) 
+
+FLIBS=   $(FORTRAN_LIBS)

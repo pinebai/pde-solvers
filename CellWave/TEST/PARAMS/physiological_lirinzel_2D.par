@@ -1,0 +1,105 @@
+parameter file type = LiRinzelWagner 
+ode output filename =  OUT/out_lirinzel.dat
+comment = "none"
+#..time stepping parameters
+
+#number of timesteps = 4000
+number of timesteps = 500
+save frequency       = 10
+maximum timestep    = 0.1
+#time stepper        = FE
+time stepper        =  AB2
+
+probe location filename=PARAMS/probes_2d_oocyte.probes
+probe output filename=OUT/physiological_lirinzel_2D_probes.sequence
+probe frequency=1
+
+#..grid parameters
+#name of grid file = Grids/square300um.hdf
+#name of show file = OUT/square02.show
+
+#name of grid file = Grids/oocyte_1000_um.hdf
+name of grid file = Grids/oocyte.hdf
+name of show file = OUT/physiological_lirinzel_2D.show
+
+#..biological model parameters
+#calcium rescale     =  1.0  # no scaling
+
+  #....initial data
+  calcium initial data type= homogeneous
+#  IP3 initial data type    = radial with gradient
+  IP3 initial data type    = homogeneous
+
+  calcium_0  = 0.57   # micro M
+  ip3_0      = 0.136     # micro M
+  h_0        = 0.0.8986
+
+#  calcium_0  = 0.1153   # micro M
+#  ip3_0      = 0.1888      # micro M
+#  h_0        = 0.93
+#  h_0        = 0.43     # nondimensional
+
+  # .... for inhomog. distribution of IP3, fig. 4 in Wagner et al
+  #  ip3Dist_I_s = 0.12     #  u Molar
+  ip3Dist_I_h = 1.0       
+  ///ip3Dist_I_h  =0.5;  # less convex wave
+  ip3Dist_I_w = 0.015;
+  ip3Dist_r_c = 500.;    # u meter
+  
+  ip3Dist_xstar    = 167  # u meter
+  ip3Dist_Iprime_h = 0.84 # u Molar
+  ip3Dist_Iprime_w = 0.8 
+
+  ip3Dist_I_s = 0.20     #  u Molar
+#  ip3scale =  0.8    # scale down IP3 
+
+#   --> lower reststate not stable with these
+#   ip3_0      = 0.3
+#  h_0        = 0.93     # nondimensional
+
+    #....initial data: IP3 blob
+##    blobMin_p    = 
+#    blobMax_p    =  1.1
+#    xBlob_p      =  100. 
+#    yBlob_p      =  100.
+#    zBlob_p      =  0.
+#    blobWidth_p  =  100
+
+    blobMax_c    =  1.1
+    xBlob_c      =  100. 
+    yBlob_c      =  100.
+    zBlob_c      =  0.
+    blobWidth_c  =  100
+
+
+    #....rxn parameters
+#    nu_L       = 4e-3  # nondimensional  # no lower equil. in [Ca2+]
+    nu_L       =  3e-5  # nondimensional 
+
+    d_I        = 0.012 # micro M  = d1
+    k_p        = 0.46   # micro M
+    nu_P       = 0.02   # micro M
+    I_s        = 0.12  # micro M
+    C_er       = 2.7   # micro M
+    tau_0      = 6.    # sec
+    d_act      = 1.4   # micro M = d5
+    diffCalcium= 300.  # micro m^2/sec
+
+    lambda     = 200 # 1/sec
+    beta       = 0.053   # nondimensional
+    d_inh      = 1.235   # micro M
+
+    # ..parameters NOT USED BY WAGNER et al
+    diffIP3    = 0. #300.;   # IP3 diffusion
+    k_i        = 0. # 1/sec, IP3 degradation, 0=synthetic IP3S
+
+    #diffIP3    = 300. #300.;   # IP3 diffusion
+    #k_i        = 0. # 1/sec, IP3 degradation, 0=synthetic IP3S
+
+
+    # .. one d parameters
+    npoints oned = 500
+    xbegin oned      = -500.
+    xend oned        = 500; 
+
+

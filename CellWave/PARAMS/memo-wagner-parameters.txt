@@ -1,0 +1,33 @@
+tweaking notes:
+
+ -- FOUND GREAT PARAMS
+   ==> p=0.1888, Ca_peak = 1.15
+   ==> p=0.0931, Ca_peak = 0.7 !!
+   ==> p=0.7 --> drops to 0.1 from initial c=1
+ --> FILE: caWagner-greatSet.ode.par:w
+:q
+ 
+
+ -- PHYSIOLOGICAL PARAMS: -ok-phys-nonosc.ode.set
+  -- min c=0.6, max c=1
+  == unfortunately the eigvals are real
+     Q: Can we tweak to get imag eigenvals at cmax?
+    -- look at discr of linearized system
+
+   I'm getting closer, I want
+Max c=1 for p=0.25
+Max c=.7 for p=0.09
+-- bistable between 0.09< p <0.25
+-- single stable state somewhere 0.25<p<1
+oscillatory behavior near max c
+overshoot under c=1.25
+
+THEN identify params that determine the wave
+speed !! 
+
+Simplify the model to PWL
+
+RUN 3D model with new parameters.
+:w
+:q
+

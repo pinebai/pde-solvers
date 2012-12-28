@@ -1,0 +1,121 @@
+#
+#  parameters for CellWave:
+#    Reaction model 2Buffer
+#      which is a Li-Rinzel model with 2 buffers + IP3 diffusion
+#
+#  -- run 2 buffer model on HIROSE-150K geometry (150k discr. points)
+#  (ORIG: PARAMS/ref_2buffer_hirose150k.par )
+#
+#    NOTE: p=0.1 is bistable. p=0.4 only has excited [Ca2+] state ([Ca2+]=1.4uM) 
+#
+
+parameter file type = 2Buffer
+ode output filename =  OUT/out_ref2.dat
+comment = "none"
+#..time stepping parameters
+
+number of timesteps = 100000
+#number of timesteps = 100
+save frequency       = 100
+flush frequency      = 3
+maximum timestep    = 0.00001
+#time stepper        = FE
+time stepper        =  AB2
+
+#..grid parameters
+name of grid file = Grids/hirose-tfi-full-150k.hdf
+name of show file = OUT/ref_2buffer_hirose150k.show
+
+# 
+# .. model parameters
+#
+
+#..diffusions: these are D_c, D_p, and D_b1, respectively
+calcium diffusion           =    300.   # calcium diffusion
+IP3 diffusion               =    220.       #  IP3 diffusion
+b2 diffusion                =    50.      #  mobile buffer diffusion
+
+#..flux bc coefficients
+flux bc coefficient calcium  = 300.
+flux bc coefficient IP3      = 220.
+flux bc coefficient b1       = 0.
+flux bc coefficient b2       = 50.
+
+#..Flux bcs:
+no flux bc=0  # turn them on
+
+#1/sec, IP3 degradation, 0=synthetic IP3S
+k_i                           =  0.
+
+#..disable buffers at will, by default buffers are ON=1
+#b1Mask                        =  1    // set to =0 to remove buffer 1
+#b2Mask                        =  1    // set to =0 to remove buffer 2
+    
+#..initial data
+#....initial blob data
+
+calcium initial data type = homogeneous
+IP3 initial data type     = homogeneous
+#IP3 initial data type     = blob    ## NOTE: this is the original initial data from Hirose150k
+
+## .... for Ca2+
+##blobMin_c                  = calcium_0
+#blobMax_c                  = 2.
+#xBlob_c                    = -200.
+#yBlob_c                    = 0.
+#zBlob_c                    = 0.
+#blobWidth_c                = 60.
+
+## .... for  IP3
+blobMin_p                  = 0.1
+blobMax_p                  = 5
+xBlob_p                    =   0.
+yBlob_p                    =   0.  
+zBlob_p                    =   -10.
+blobWidth_p                = 10. 
+
+
+##
+## .. DIFFERENT FROM Slepchenko et al
+##
+
+#calcium_0             = 0.1
+#h_0                   = 0.93
+#b1_0                  = 0.1
+#b2_0                  = 0.1
+#ip3_0                 = 0.15
+
+#..new numbers
+calcium_0             = 0.1
+h_0                   = 0.93
+b1_0                  = 0.1
+b2_0                  = 0.1
+ip3_0                 = 0.4   # elevated, leads to only excited [Ca2+] state at 1.4uM
+
+#..disable buffers at will, by default buffers are ON=1
+#b1Mask                        =  0    # set to =0 to remove buffer 1
+#b2Mask                        =  0    # set to =0 to remove buffer 2
+
+## from Table II 
+#J_0                 = 100
+d_act               = 0.7  
+d_inh               = 0.6  
+d_I                 = 0.025
+k_on                = 2.0  
+V_m                 = 10.  
+K_p                 = 0.25  
+#b1 total            = 200.
+#b2 total            = 9.5     # default value from Fig. 13 in Slepchenko 
+b1 total            = 0.5
+b2 total            = 0.5     # default value from Fig. 13 in Slepchenko 
+
+K1                  = 10.
+K2                  = 0.24
+k1_on               = 1000     #SLOWED DOWN CA buffers!!
+k2_on               = 1000
+
+#..2 Buffer extra's to get J_0 (and IP3 dynamics)
+C_er                = 100.
+nu_c                = 14.       #164
+nu_L                = 0.0016  #0.01
+

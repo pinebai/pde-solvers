@@ -1,0 +1,39 @@
+# 
+# This Makefile was created by the configure script using
+# the files config/MakeDefs.linux and primer/Makefile.in 
+# 
+# linux with dynamic libraries (requires ecgs compiler)
+
+include $(FLOWTOOLKIT)/../config/Makefile.intel
+
+.SUFFIXES:
+.SUFFIXES: .C .x .C .o .f
+.C.o :;	$(CC) $(CCFLAGS) -c $*.C
+.C.x: $(LIB_DEPENDENCIES)
+	 $(CC) $(CCFLAGS) -o $@.x  $< $(CLIBS) $(FLIBS)  $(GLIBS)
+
+# hyperbolic amr example
+amrHype= amrHype.o getDt.o 
+amrHype: $(amrHype) 
+	$(PURIFY) $(CC) $(CCFLAGS) $(PURIFY_OPTIONS) -o amrHype $(amrHype) $(CLIBS) $(FLIBS) $(GLIBS)
+
+
+clean:  
+	rm -f *.o 
+
+cleanexec:
+	rm -f *.x
+
+cleangrids:
+	rm -f *.hdf
+
+veryclean: clean cleanexec cleangrids
+	rm -f *~ ogen.cmd ogen.log ogen.check 
+
+depend_date: depend; perl $(Overture)/config/makeDepend -f depend -Y -- $(CC_INCLUDES_FOR_DEPEND) -- $(Source)
+	touch $@
+# include the dependencies here
+include depend
+
+.PRECIOUS: depend_date
+

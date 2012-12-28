@@ -1,0 +1,136 @@
+#
+#  parameters for CellWave:
+#    Reaction model 2Buffer
+#      which is a Li-Rinzel model with 2 buffers + IP3 diffusion
+#    - 2D grid, simple case
+#
+# ** test with 2D hirose grid
+#     --> use full HIROSE mesh
+#
+
+parameter file type = 2Buffer
+ode output filename =  OUT/out_dbg_2buffer8.dat
+comment = "none"
+#..time stepping parameters
+
+#number of timesteps = 100
+#save frequency       = 1
+number of timesteps = 2000000
+save frequency       = 500
+log frequency        = 100
+flush frequency      = 5
+maximum timestep    = 0.000004
+#maximum timestep    = 0.000003
+#time stepper        = FE
+time stepper        =  AB2
+
+#..Flux bcs:
+no flux bc=0  # turn them on with 'no flux bc=0'
+
+#..grid parameters
+#name of grid file  = Grids/debug-simple-hirose-7cells.hdf
+#name of grid file  = Grids/debug-simple-hirose-just-cell20.hdf
+#name of show file  = OUT2/dbg_2buffer_fluxbc5.show
+
+name of grid file  = Grids/without-cell33-hirose2d.hdf
+name of show file  = OUT/dbg_2buffer_fluxbc8.show
+
+#name of grid file  = Grids/without-3d.hdf
+#name of show file  = OUT/dbg_2buffer_3d.show
+
+
+# 
+# .. model parameters
+#
+
+#..diffusions: these are D_c, D_p, and D_b1, respectively
+calcium diffusion           =    300.   # calcium diffusion
+#calcium diffusion           =    100.   # calcium diffusion
+IP3 diffusion               =    220.       #  IP3 diffusion
+b2 diffusion                =    50.      #  mobile buffer diffusion
+
+#..flux bc coefficients
+flux bc coefficient calcium  = 0.
+flux bc coefficient IP3      = 1.
+#flux bc coefficient IP3      = 0.
+flux bc coefficient b1       = 0.
+flux bc coefficient b2       = 0.
+
+#1/sec, IP3 degradation, 0=synthetic IP3S
+k_i                           =  0.
+
+#..initial data
+#....initial blob data
+
+#calcium initial data type = blob
+#IP3 initial data type     = homogeneous
+
+calcium initial data type = homogeneous
+IP3 initial data type     = blob
+
+## .... for Ca2+
+blobMin_c                  = 0.1
+blobMax_c                  = 2.
+xBlob_c                    = 42.
+yBlob_c                    = 42.
+#zBlob_c                    = 42.
+blobWidth_c                = 8.
+
+## .... for  IP3
+blobMin_p                  = 0.1
+blobMax_p                  = 30. 
+#xBlob_p                    =  35.
+xBlob_p                    =  42.
+yBlob_p                    =  42.  
+#zBlob_p                    =  
+blobWidth_p                =   3. 
+
+#IP3 initial data type      = box blob
+### box corners:              x0    y0     z0   x1 y1 z1
+##IP3 box corners=               1     1      1   20 20 10
+#IP3 box corners=               0.000     0.001     -1   20 20 1.
+#IP3 box maximum=           4.8
+#blobMin_p                  = 0.1
+#blobMax_p                  = 5
+
+
+##
+## .. DIFFERENT FROM Slepchenko et al
+##
+
+calcium_0             = 0.1
+h_0                   = 0.93
+b1_0                  = 0.1
+b2_0                  = 0.1
+ip3_0                 = 0.15
+
+#..disable buffers at will, by default buffers are ON=1
+#b1Mask                        =  0    # set to =0 to remove buffer 1
+#b2Mask                        =  0    # set to =0 to remove buffer 2
+
+
+## from Table II 
+#J_0                 = 100
+d_act               = 0.7  
+d_inh               = 0.6  
+d_I                 = 0.025
+k_on                = 2.0  
+V_m                 = 10.  
+K_p                 = 0.25  
+#b1 total            = 200.
+#b2 total            = 9.5     # default value from Fig. 13 in Slepchenko 
+b1 total            = 0.5
+b2 total            = 0.5     # default value from Fig. 13 in Slepchenko 
+
+K1                  = 10.
+K2                  = 0.24
+#k1_on               = 10
+#k2_on               = 10
+k1_on               = 1e4.
+k2_on               = 1e4.
+
+#..2 Buffer extra's to get J_0 (and IP3 dynamics)
+C_er                = 100.
+nu_c                = 14.       #164
+nu_L                = 0.0016  #0.01
+

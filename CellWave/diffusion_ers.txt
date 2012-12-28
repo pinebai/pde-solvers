@@ -1,0 +1,40 @@
+Diffusion test errors 2003-01-22:
+=================================
+(after 100 steps, dt=0.01, viscosity=0.01, box length=2)
+
+note: for underresolved solutions, the 'order' is nonsense.
+The order should be =2 once the asymptotic range is reached,
+where the solution is 'well resolved'.
+
+RESULTS:
+--------
+
+2D/nonsmooth:
+resolution	max error	ratio		order
+11		2.57436976e+01
+22		3.21934808e-01	79.97		6.32
+44		9.99174948e-02	3.22		1.69
+88		1.98922798e-02	5.02		2.33
+
+3D/nonsmooth:
+resolution	max error	ratio		order
+11		1.69511308e+02			
+21		8.76324678e+00	19.34		4.27
+41		4.86533829e-01	18.01		4.17
+81		1.12651473e-01	 4.32		2.11
+
+2D/smooth:
+resolution	max error	ratio		order
+11		6.19300801e-01
+22		9.06460476e-02	6.83		2.77
+44		1.65674514e-02	5.47		2.45
+88		3.34778349e-03	4.95		2.31
+
+3D/smooth:
+resolution	max error	ratio		order
+11		1.91510934e+00
+21		3.60264364e-01	5.32		2.41
+41		5.70802785e-02  6.31		2.68
+81		1.39752480e-02	4.08		2.03
+
+

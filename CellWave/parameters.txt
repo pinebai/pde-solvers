@@ -1,0 +1,133 @@
+cellWaveMain_2buffer.C:  param.get( "name of grid file",    data.nameOfOGFile,  "" );
+cellWaveMain_2buffer.C:  param.get( "name of show file",    data.nameOfShowFile,"");
+cellWaveMain_2buffer.C:  param.get( "maximum timestep",     data.timeStepSize,  0.1);
+cellWaveMain_2buffer.C:  param.get( "number of timesteps",  data.numberOfTimeSteps, 1);
+cellWaveMain_2buffer.C:  param.get( "save frequency",	     data.saveEveryNthFrame, 10);
+cellWaveMain.C:  param.get( "name of grid file",    data.nameOfOGFile,  "" );
+cellWaveMain.C:  param.get( "name of show file",    data.nameOfShowFile,"");
+cellWaveMain.C:  param.get( "maximum timestep",     data.timeStepSize,  0.1);
+cellWaveMain.C:  param.get( "number of timesteps",  data.numberOfTimeSteps, 1);
+cellWaveMain.C:  param.get( "save frequency",	     data.saveEveryNthFrame, 10);
+cellWaveMain.C:  param.get( "flush frequency",      data.flushFrequency, 10);
+cellWaveMain.C:  paramFileType = param.get("parameter file type");
+GenericCalciumIP3Reaction.C:  par.get("calcium_0", calcium_0,  0.1153); // micro M
+GenericCalciumIP3Reaction.C:  par.get("ip3_0",     ip3_0,      0.24);   // micro M             FIXME -- not as Wagner et al
+GenericCalciumIP3Reaction.C:  par.get("h_0",       h_0,        0.93);   // nondimensional
+GenericCalciumIP3Reaction.C:  par.get("calcium initial data type",typeName,"");
+GenericCalciumIP3Reaction.C:  par.get("IP3 initial data type",typeName,"");
+GenericCalciumIP3Reaction.C:  par.get("blobMin_c",    blobMin_c,    calcium_0 );
+GenericCalciumIP3Reaction.C:  par.get("blobMax_c",    blobMax_c,    2.);
+GenericCalciumIP3Reaction.C:  par.get("xBlob_c",      xBlob_c,     -200.);
+GenericCalciumIP3Reaction.C:  par.get("yBlob_c",      yBlob_c,      0.);
+GenericCalciumIP3Reaction.C:  par.get("zBlob_c",      zBlob_c,      0.);
+GenericCalciumIP3Reaction.C:  par.get("blobWidth_c",  blobWidth_c,  60.);
+GenericCalciumIP3Reaction.C:  par.get("blobMin_p",    blobMin_p,    ip3_0);
+GenericCalciumIP3Reaction.C:  par.get("blobMax_p",    blobMax_p,    20.);
+GenericCalciumIP3Reaction.C:  par.get("xBlob_p",      xBlob_p,     -100.); 
+GenericCalciumIP3Reaction.C:  par.get("yBlob_p",      yBlob_p,      100.);
+GenericCalciumIP3Reaction.C:  par.get("zBlob_p",      zBlob_p,      0.);
+GenericCalciumIP3Reaction.C:  par.get("blobWidth_p",  blobWidth_p,  200);
+GenericCalciumIP3Reaction.C:  par.get("ip3Dist_I_s",ip3Dist_I_s,0.12);
+GenericCalciumIP3Reaction.C:  par.get("ip3Dist_I_h",ip3Dist_I_h,1.0);
+GenericCalciumIP3Reaction.C:  par.get("ip3Dist_I_w",ip3Dist_I_w,0.015);
+GenericCalciumIP3Reaction.C:  par.get("ip3Dist_r_c",ip3Dist_r_c,500.);
+GenericCalciumIP3Reaction.C:  par.get("ip3Dist_xstar", ip3Dist_xstar,167);
+GenericCalciumIP3Reaction.C:  par.get("ip3Dist_Iprime_h",ip3Dist_Iprime_h, 0.84);
+GenericCalciumIP3Reaction.C:  par.get("ip3Dist_Iprime_w",ip3Dist_Iprime_w,0.8);
+GenericCalciumIP3Reaction.C:  par.get("ip3scale", ip3scale, 1.0);
+GenericCalciumIP3Reaction.C:    par.get("IP3 box corners", cornerString,"");
+GenericCalciumIP3Reaction.C:    par.get("IP3 box maximum", ip3BoxMax, ip3_0);
+NucleusGridFunction.C:  params.get( "nucleus boundary thickness", thickness, -1. );
+NucleusGridFunction.C:  params.get( "nucleus type", nucleusType, "");
+NucleusGridFunction.C:    params.get("nucleus corners",  doubleList ); 
+NucleusGridFunction.C:    params.get("nucleus radius",radius, 20.);
+NucleusGridFunction.C:    params.get("nucleus center",  doubleList ); 
+NucleusGridFunction.C:    params.get("nucleus file",nucleusFileName);
+odeLiRinzel.C:    param.get( "name of grid file",    data.nameOfOGFile,  "" );
+odeLiRinzel.C:    param.get( "name of show file",    data.nameOfShowFile,"");
+odeLiRinzel.C:    param.get( "maximum timestep",     data.timeStepSize,  0.1);
+odeLiRinzel.C:    param.get( "number of timesteps",  data.numberOfTimeSteps, 1);
+odeLiRinzel.C:    param.get( "save frequency",	     data.saveEveryNthFrame, 10);
+odeLiRinzel.C:    param.get("ode output filename", outFileName, "ode.dat");
+odeSlepchenko2Buffer.C:    param.get( "name of grid file",    data.nameOfOGFile,  "" );
+odeSlepchenko2Buffer.C:    param.get( "name of show file",    data.nameOfShowFile,"");
+odeSlepchenko2Buffer.C:    param.get( "maximum timestep",     data.timeStepSize,  0.1);
+odeSlepchenko2Buffer.C:    param.get( "number of timesteps",  data.numberOfTimeSteps, 1);
+odeSlepchenko2Buffer.C:    param.get( "save frequency",       data.saveEveryNthFrame, 10);
+odeSlepchenko2Buffer.C:    param.get("ode output filename", outFileName, "ode.dat");
+Probes.C:  params.get( "probe location filename", probeLocationFileName, "" );
+Probes.C:  params.get( "probe output filename", probeOutputFileName, "" );
+Probes.C:    params.get("probe frequency", probeHowOften, 1 );
+ReactionLiRinzelWagner.C:  par.get("parameter file type",typeString);
+ReactionLiRinzelWagner.C:  par.get("nu_L",    nu_L,      5e-4);
+ReactionLiRinzelWagner.C:  par.get("d_I",     d_I,       0.025); // micro M
+ReactionLiRinzelWagner.C:  par.get("k_p",     k_p,       0.4);   // micro M
+ReactionLiRinzelWagner.C:  par.get("nu_P",    nu_P,      0.1);   // micro M
+ReactionLiRinzelWagner.C:  par.get("I_s",     I_s,       0.12);  // micro M 
+ReactionLiRinzelWagner.C:  par.get("C_er",    C_er,      10.);   // micro M
+ReactionLiRinzelWagner.C:  par.get("tau_0",   tau_0,     4);     // sec
+ReactionLiRinzelWagner.C:  // par.get("eta",     eta,       1.);    // 1/ micro M
+ReactionLiRinzelWagner.C:  par.get("d_act",   d_act,     1.2);   // micro M
+ReactionLiRinzelWagner.C:  par.get("diffCalcium", diffCalcium, 300.);  // micro m^2/sec
+ReactionLiRinzelWagner.C:  par.get("lambda", lambda,      112.5); // 1/sec
+ReactionLiRinzelWagner.C:  par.get("d_inh",  d_inh,       1.5);   // micro M
+ReactionLiRinzelWagner.C:  par.get("beta",   beta,        0.053); // nondimensional
+ReactionLiRinzelWagner.C:  par.get("diffIP3",diffIP3,     0.); //300.;   // IP3 diffusion
+ReactionLiRinzelWagner.C:  par.get("k_i",    k_i,         0.); // 1/sec, IP3 degradation, 0=synthetic IP3S
+ReactionLiRinzelWagner.C:  par.get("calcium_0", calcium_0,  0.1153); // micro M
+ReactionLiRinzelWagner.C:  par.get("ip3_0",     ip3_0,      0.24);   // micro M             FIXME -- not as Wagner et al
+ReactionLiRinzelWagner.C:  par.get("h_0",       h_0,        0.93);   // nondimensional
+ReactionLiRinzelWagner.C:  par.get("blobMin_c",    blobMin_c,    calcium_0 );
+ReactionLiRinzelWagner.C:  par.get("blobMax_c",    blobMax_c,    2.);
+ReactionLiRinzelWagner.C:  par.get("xBlob_c",      xBlob_c,     -200.);
+ReactionLiRinzelWagner.C:  par.get("yBlob_c",      yBlob_c,      0.);
+ReactionLiRinzelWagner.C:  par.get("zBlob_c",      zBlob_c,      0.);
+ReactionLiRinzelWagner.C:  par.get("blobWidth_c",  blobWidth_c,  60.);
+ReactionLiRinzelWagner.C:  par.get("blobMin_p",    blobMin_p,    ip3_0);
+ReactionLiRinzelWagner.C:  par.get("blobMax_p",    blobMax_p,    20.);
+ReactionLiRinzelWagner.C:  par.get("xBlob_p",      xBlob_p,     -100.); 
+ReactionLiRinzelWagner.C:  par.get("yBlob_p",      yBlob_p,      100.);
+ReactionLiRinzelWagner.C:  par.get("zBlob_p",      zBlob_p,      0.);
+ReactionLiRinzelWagner.C:  par.get("blobWidth_p",  blobWidth_p,  200);
+ReactionSlepchenko2Buffer.C:  par.get("parameter file type",typeString);
+ReactionSlepchenko2Buffer.C:  par.get("b1_0",      b1_0,       0.1);    // initial immobile buffer level
+ReactionSlepchenko2Buffer.C:  par.get("b2_0",      b2_0,       0.1);    // initial mobile buffer level
+ReactionSlepchenko2Buffer.C:  par.get("J_0",       J_0,      1000);
+ReactionSlepchenko2Buffer.C:  par.get("d_act",     d_act,    0.7);
+ReactionSlepchenko2Buffer.C:  par.get("d_inh",     d_inh,    0.6);
+ReactionSlepchenko2Buffer.C:  par.get("k_on",     k_on,     2.0);
+ReactionSlepchenko2Buffer.C:  par.get("V_m",       V_m,      10.);
+ReactionSlepchenko2Buffer.C:  par.get("K_p",       K_p,      0.25);
+ReactionSlepchenko2Buffer.C:  par.get("leak",      leak,     1.51e-2);   // = L in Table III, Slepchenko et al.
+ReactionSlepchenko2Buffer.C:  par.get("b1 total",  b1_tot,   200.);
+ReactionSlepchenko2Buffer.C:  par.get("b2 total",  b2_tot,   9.5);  // default value from Fig. 13 in Slepchenko 
+ReactionSlepchenko2Buffer.C:  par.get("K1",        K1,       10.);
+ReactionSlepchenko2Buffer.C:  par.get("K2",        K2,       0.24);
+ReactionSlepchenko2Buffer.C:  par.get("k1_on",     k1_on,    0.05); 
+ReactionSlepchenko2Buffer.C:  par.get("k2_on",     k2_on,    0.05);
+ReactionSlepchenko2Buffer.C:  par.get("calcium diffusion", diffCalcium, 300.);  // calcium diffusion
+ReactionSlepchenko2Buffer.C:  par.get("IP3 diffusion",     diffIP3,     0.);     // IP3 diffusion
+ReactionSlepchenko2Buffer.C:  par.get("b2 diffusion",      diffB2,      50.);    // mobile buffer diffusion
+ReactionSlepchenko2Buffer.C:  par.get("k_i",               k_i,         0.); // 1/sec, IP3 degradation, 0=synthetic IP3S
+ReactionSlepchenko2Buffer.C:  par.get("b1Mask",            b1Mask,      1);  // set to =0 to remove buffer 1
+ReactionSlepchenko2Buffer.C:  par.get("b2Mask",            b2Mask,      1);  // set to =0 to remove buffer 2
+readNucleus.C:	nuclMask.get( *hdf, "nucleus mask");
+testDiffusion.C:  param.get("parameter file type", paramFileType, "");
+testDiffusion.C:  param.get( "name of grid file",    tempstr,  "" );        nameOfOGFile   = tempstr.c_str();
+testDiffusion.C:  param.get( "name of show file",    tempstr,"");           nameOfShowFile = tempstr.c_str();
+testDiffusion.C:  param.get( "maximum timestep",     timeStepSize,  0.1);
+testDiffusion.C:  param.get( "number of timesteps",  numberOfTimeSteps, 1);
+testDiffusion.C:  param.get( "save frequency",	     saveEveryNthFrame, 10);
+testDiffusion.C:  param.get( "timestep size", timeStepSize, timeStepSize );
+testDiffusion.C:  param.get( "viscosity", viscosity, viscosity );
+testDiffusion.C:  param.get( "number of timesteps", numberOfTimeSteps, numberOfTimeSteps);
+testDiffusion.C:  param.get( "saveEveryNthFrame", saveEveryNthFrame, saveEveryNthFrame );
+testDiffusion.C:  param.get("interactive", isInteractive, "yes");
+testDiffusion.C:  param.get("output", isOutputting, "yes");
+testDiffusion.C:    param.get( "time offset", timeOffset, 0.01);
+testDiffusion.C:    param.get( "x offset",   x0,  0.);
+testDiffusion.C:    param.get( "y offset",   y0,  0.);
+testDiffusion.C:    param.get( "z offset",   z0,  0.);
+testDiffusion.C:    param.get( "total mass", totalMass, 1.);
+testProbes2.C:  param.get( "name of grid file", overtureGridFileName, "Grids/oocyte_1000_um.hdf");
+testProbes.C:  param.get( "name of grid file", overtureGridFileName, "Grids/oocyte_1000_um.hdf");

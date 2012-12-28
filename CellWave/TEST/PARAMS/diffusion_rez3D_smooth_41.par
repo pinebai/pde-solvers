@@ -1,0 +1,24 @@
+#
+# ..testDiffusion -- 3D resolution study
+#
+parameter file type= test diffusion
+
+interactive         = no
+output              = no
+
+name of grid file=Grids/box41.hdf
+name of show file=OUT/td_test3D_smooth_rez41.show
+
+maximum timestep    = 0.01
+number of timesteps = 100
+save frequency      = 10
+
+#..gaussian info
+time offset = 1.
+x offset    = 0.
+y offset    = 0.
+z offset    = 0.
+total mass  = 1.
+
+
+

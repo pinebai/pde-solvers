@@ -1,0 +1,23 @@
+#
+# ..testDiffusion 
+#
+parameter file type= test diffusion
+
+interactive         = no
+
+name of grid file=Grids/square44.hdf
+name of show file=OUT/td_test1.show
+
+maximum timestep    = 0.01
+number of timesteps = 100
+save frequency      = 1
+
+#..gaussian info
+time offset = 0.01
+x offset    = 0.
+y offset    = 0.
+z offset    = 0.
+total mass  = 1.
+
+
+

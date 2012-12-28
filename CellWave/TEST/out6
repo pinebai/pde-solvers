@@ -1,0 +1,147 @@
+A++ Internal_Index bounds checking: ON 
+ --------------------------------------------------------------------- 
+   CellWave -- simulation of biochemical waves in cells
+ --------------------------------------------------------------------- 
+.. Grid file=Grids/without-3d-influx.hdf, Show file=OUT/physiological_2buffer_v1.show
+..     dt=4.0000e-03, num. steps=5000000, save every 1 frame, Tmax=2.0000e+04
+SolverFactory::getSolver <2Buffer>
+ --- SolverFactory --> inst. 2Buffer
+>> Solver 2Buffer instantiated <<
+ ***** Mounting file Grids/without-3d-influx.hdf****
+getFromADataBase: number of CompositeGrid(s) found =1, name[0]=test
+Ogshow: ---Mount a showFile:OUT/physiological_2buffer_v1.show
+GenericSolver::updateModel-->2 Buffer model: Li-Rinzel + 2x explicit buff + IP3
+--FluxBCs turned **on**(GenericSolver::genericSetup)
+***FluxBC::setupInterpolation: numComponents 5
+*******Warning:mapping:Inverse:Newton: iterations = 10
+Mapping::Inverse:Newton:WARNING:slow convergence in double precision for mapping cell27. 
+                                Using larger convergence tolerance=1.192e-05 instead of tolerance=2.220e-12
+Mapping::Inverse:Newton:WARNING:slow convergence in double precision for mapping cell23. 
+                                Using larger convergence tolerance=1.192e-05 instead of tolerance=2.220e-12
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,0.000e+00)  r=(1.088e+00,1.212e+00,0.000e+00), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-6.053e-01)  r=(1.088e+00,1.212e+00,6.667e-02), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-1.211e+00)  r=(1.088e+00,1.212e+00,1.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-1.816e+00)  r=(1.088e+00,1.212e+00,2.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-2.421e+00)  r=(1.088e+00,1.212e+00,2.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-3.027e+00)  r=(1.088e+00,1.212e+00,3.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-3.632e+00)  r=(1.088e+00,1.212e+00,4.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-4.237e+00)  r=(1.088e+00,1.212e+00,4.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-4.843e+00)  r=(1.088e+00,1.212e+00,5.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-5.448e+00)  r=(1.088e+00,1.212e+00,6.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-6.053e+00)  r=(1.088e+00,1.212e+00,6.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-6.659e+00)  r=(1.088e+00,1.212e+00,7.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-7.264e+00)  r=(1.088e+00,1.212e+00,8.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-7.869e+00)  r=(1.088e+00,1.212e+00,8.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-8.475e+00)  r=(1.088e+00,1.212e+00,9.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-9.080e+00)  r=(1.088e+00,1.212e+00,1.000e+00), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,0.000e+00)  r=(1.088e+00,1.212e+00,0.000e+00), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,0.000e+00)  r=(1.087e+00,1.170e+00,0.000e+00), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-6.053e-01)  r=(1.088e+00,1.212e+00,6.667e-02), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-6.053e-01)  r=(1.087e+00,1.170e+00,6.667e-02), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-1.211e+00)  r=(1.088e+00,1.212e+00,1.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-1.211e+00)  r=(1.087e+00,1.170e+00,1.333e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-1.816e+00)  r=(1.088e+00,1.212e+00,2.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-1.816e+00)  r=(1.087e+00,1.170e+00,2.000e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-2.421e+00)  r=(1.088e+00,1.212e+00,2.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-2.421e+00)  r=(1.087e+00,1.170e+00,2.667e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-3.027e+00)  r=(1.088e+00,1.212e+00,3.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-3.027e+00)  r=(1.087e+00,1.170e+00,3.333e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-3.632e+00)  r=(1.088e+00,1.212e+00,4.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-3.632e+00)  r=(1.087e+00,1.170e+00,4.000e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-4.237e+00)  r=(1.088e+00,1.212e+00,4.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-4.237e+00)  r=(1.087e+00,1.170e+00,4.667e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-4.843e+00)  r=(1.088e+00,1.212e+00,5.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-4.843e+00)  r=(1.087e+00,1.170e+00,5.333e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-5.448e+00)  r=(1.088e+00,1.212e+00,6.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-5.448e+00)  r=(1.087e+00,1.170e+00,6.000e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-6.053e+00)  r=(1.088e+00,1.212e+00,6.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-6.053e+00)  r=(1.087e+00,1.170e+00,6.667e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-6.659e+00)  r=(1.088e+00,1.212e+00,7.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-6.659e+00)  r=(1.087e+00,1.170e+00,7.333e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-7.264e+00)  r=(1.088e+00,1.212e+00,8.000e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-7.264e+00)  r=(1.087e+00,1.170e+00,8.000e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-7.869e+00)  r=(1.088e+00,1.212e+00,8.667e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-7.869e+00)  r=(1.087e+00,1.170e+00,8.667e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-8.475e+00)  r=(1.088e+00,1.212e+00,9.333e-01), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-8.475e+00)  r=(1.087e+00,1.170e+00,9.333e-01), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.621e+01,3.195e+01,-9.080e+00)  r=(1.088e+00,1.212e+00,1.000e+00), dr=(7.159e-02,2.232e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(1.670e+01,3.315e+01,-9.080e+00)  r=(1.087e+00,1.170e+00,1.000e+00), dr=(-2.344e-01,-5.314e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell23 
+*******Warning:mapping:Inverse:Newton: iterations = 11
+Mapping::Inverse:Newton:WARNING:slow convergence in double precision for mapping cell21. 
+                                Using larger convergence tolerance=1.192e-05 instead of tolerance=2.220e-12
+Mapping::Inverse:Newton:WARNING:slow convergence in double precision for mapping cell20. 
+                                Using larger convergence tolerance=1.192e-05 instead of tolerance=2.220e-12
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,0.000e+00)  r=(-7.652e-01,1.551e+00,0.000e+00), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-6.053e-01)  r=(-7.652e-01,1.551e+00,6.667e-02), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-1.211e+00)  r=(-7.652e-01,1.551e+00,1.333e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-1.816e+00)  r=(-7.652e-01,1.551e+00,2.000e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-2.421e+00)  r=(-7.652e-01,1.551e+00,2.667e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-3.027e+00)  r=(-7.652e-01,1.551e+00,3.333e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-3.632e+00)  r=(-7.652e-01,1.551e+00,4.000e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-4.237e+00)  r=(-7.652e-01,1.551e+00,4.667e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-4.843e+00)  r=(-7.652e-01,1.551e+00,5.333e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-5.448e+00)  r=(-7.652e-01,1.551e+00,6.000e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-6.053e+00)  r=(-7.652e-01,1.551e+00,6.667e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-6.659e+00)  r=(-7.652e-01,1.551e+00,7.333e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-7.264e+00)  r=(-7.652e-01,1.551e+00,8.000e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-7.869e+00)  r=(-7.652e-01,1.551e+00,8.667e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-8.475e+00)  r=(-7.652e-01,1.551e+00,9.333e-01), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.559e+01,3.672e+01,-9.080e+00)  r=(-7.652e-01,1.551e+00,1.000e+00), dr=(-4.133e-01,3.274e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell20 
+Mapping::Inverse:Newton:WARNING:slow convergence in double precision for mapping cell12. 
+                                Using larger convergence tolerance=1.192e-05 instead of tolerance=2.220e-12
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,0.000e+00)  r=(8.034e-03,1.341e-01,0.000e+00), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-6.053e-01)  r=(8.034e-03,1.341e-01,6.667e-02), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-1.211e+00)  r=(8.034e-03,1.341e-01,1.333e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-1.816e+00)  r=(8.034e-03,1.341e-01,2.000e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-2.421e+00)  r=(8.034e-03,1.341e-01,2.667e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-3.027e+00)  r=(8.034e-03,1.341e-01,3.333e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-3.632e+00)  r=(8.034e-03,1.341e-01,4.000e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-4.237e+00)  r=(8.034e-03,1.341e-01,4.667e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-4.843e+00)  r=(8.034e-03,1.341e-01,5.333e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-5.448e+00)  r=(8.034e-03,1.341e-01,6.000e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-6.053e+00)  r=(8.034e-03,1.341e-01,6.667e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-6.659e+00)  r=(8.034e-03,1.341e-01,7.333e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-7.264e+00)  r=(8.034e-03,1.341e-01,8.000e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-7.869e+00)  r=(8.034e-03,1.341e-01,8.667e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-8.475e+00)  r=(8.034e-03,1.341e-01,9.333e-01), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(7.674e+01,7.323e+01,-9.080e+00)  r=(8.034e-03,1.341e-01,1.000e+00), dr=(5.500e-01,5.500e-01,0.000e+00), eps=2.220e-12, maxit=11, mapping=cell12 
+Mapping::Inverse:Newton:WARNING:slow convergence in double precision for mapping cell9. 
+                                Using larger convergence tolerance=1.192e-05 instead of tolerance=2.220e-12
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,0.000e+00)  r=(-3.545e-01,9.115e-01,0.000e+00), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-6.053e-01)  r=(-3.545e-01,9.115e-01,6.667e-02), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-1.211e+00)  r=(-3.545e-01,9.115e-01,1.333e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-1.816e+00)  r=(-3.545e-01,9.115e-01,2.000e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-2.421e+00)  r=(-3.545e-01,9.115e-01,2.667e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-3.027e+00)  r=(-3.545e-01,9.115e-01,3.333e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-3.632e+00)  r=(-3.545e-01,9.115e-01,4.000e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-4.237e+00)  r=(-3.545e-01,9.115e-01,4.667e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-4.843e+00)  r=(-3.545e-01,9.115e-01,5.333e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-5.448e+00)  r=(-3.545e-01,9.115e-01,6.000e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-6.053e+00)  r=(-3.545e-01,9.115e-01,6.667e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-6.659e+00)  r=(-3.545e-01,9.115e-01,7.333e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-7.264e+00)  r=(-3.545e-01,9.115e-01,8.000e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-7.869e+00)  r=(-3.545e-01,9.115e-01,8.667e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-8.475e+00)  r=(-3.545e-01,9.115e-01,9.333e-01), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+Mapping::Newton Inverse: WARNING - no convergence for  x=(3.592e+01,6.354e+01,-9.080e+00)  r=(-3.545e-01,9.115e-01,1.000e+00), dr=(-1.565e-01,3.969e-01,-0.000e+00), eps=2.220e-12, maxit=11, mapping=cell9 
+*******Warning:mapping:Inverse:Newton: iterations = 11
+Mapping::Inverse:Newton:WARNING:slow convergence in double precision for mapping cell8. 
+                                Using larger convergence tolerance=1.192e-05 instead of tolerance=2.220e-12
+Checking 'ignoreGrid'...
+--> ignoreGrid is OK
+
+Comparison with Slepchenko et al: (derived qty's)
+                  LEAK <  1.51000000e-02> =   1.59840000e+00 
+                    J0 <  1.00000000e+03> =   8.80751020e+03 
+
+..step   0 (t=0.00e+00):c=[   0.1,   0.1] p=[  0.15,  0.15] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  10 (t=4.33e-05):c=[0.0999,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  20 (t=8.67e-05):c=[0.0999,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  30 (t=1.30e-04):c=[0.0999,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  40 (t=1.73e-04):c=[0.0999,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  50 (t=2.17e-04):c=[0.0998,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  60 (t=2.60e-04):c=[0.0998,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  70 (t=3.03e-04):c=[0.0998,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  80 (t=3.47e-04):c=[0.0998,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step  90 (t=3.90e-04):c=[0.0997,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step 100 (t=4.33e-04):c=[0.0997,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]
+..step 110 (t=4.77e-04):c=[0.0997,   0.1] p=[5.36e-08,  1.57] h=[  0.93,  0.93] b1=[    1.98,    1.98] b2=[    2.79,    2.79]

@@ -1,0 +1,45 @@
+parameter file type = LiRinzelWagner 
+ode output filename =  OUT/out_wagner_ode.dat
+
+number of timesteps = 100
+maximum timestep    = 0.1
+save frequency       = 1
+
+#dt                  = 0.1
+#time stepper        = FE
+time stepper        =  AB2
+
+    #..initial data
+    #    calcium_0  = 0.1153   # micro M
+    #    ip3_0      = 0.12     # micro M
+#    calcium_0  = 0.1153      # micro M
+#    h_0        = 0.93     # nondimensional
+#    ip3_0      = 0.96       # micro M
+
+#    calcium_0  = 2.500      # micro M
+    calcium_0  = 0.1153
+    ip3_0      = 0.12       # micro M
+    h_0        = 0.43     # nondimensional
+
+    nu_L       = 5e-4  # nondimensional
+    d_I        = 0.025 # micro M
+    k_p        = 0.4   # micro M
+    nu_P       = 0.1   # micro M
+    I_s        = 0.12  # micro M
+    C_er       = 10.   # micro M
+    tau_0      = 4.    # sec
+    #tau_0      = 25     # sec  --- DIFFERENT from Wagner
+    d_act      = 1.2   # micro M
+    diffCalcium= 300.  # micro m^2/sec
+    #diffCalcium =0. #TRY THIS
+
+    lambda     = 112.5 # 1/sec
+    #lambda     = 250    # 1/sec
+    d_inh      = 1.5   # micro M
+    beta       = 0.053 # nondimensional
+
+    # ..parameters NOT USED BY WAGNER et al
+    diffIP3    = 0. #300.;   # IP3 diffusion
+    k_i        = 0. # 1/sec, IP3 degradation, 0=synthetic IP3S
+
+

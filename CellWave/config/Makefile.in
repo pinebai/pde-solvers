@@ -1,0 +1,64 @@
+#
+#
+# Primer examples:
+#    type `make programName' to make the example called `programName', see the
+#       possible program names below
+#    type `make' to make all examples
+#
+
+
+# dp: FFLAGS = -r8 -i4
+CLIBS=   $(LDFLAGS)$(Overture)/lib $(LibOverture) $(AppLibraries) 
+
+FLIBS=   $(FORTRAN_LIBS)
+
+Source=mappedGridExample1.C mappedGridExample2.C mappedGridExample3.C mappedGridExample3CC.C mappedGridExample4.C \
+           mappedGridExample5.C mappedGridExample6.C \
+	   example1.C example2.C example3.C example4.C example5.C example6.C example7.C example8.C example9.C \
+           move1.C amrExample1.C mgExample1.C mgExample2.C lins.C wave.C ChannelMapping.C getDt.C \
+           amrHype.C           
+
+# Here are the things we can make
+PROGRAMS = mappedGridExample1 mappedGridExample2 mappedGridExample3 mappedGridExample4 \
+           mappedGridExample5 mappedGridExample6 \
+	   example1 example2 example3 example4 example5 example6 example7 example8 example9 \
+           move1 amrExample1 mgExample1 mgExample2 lins wave amrHype
+
+all:  depend_date $(PROGRAMS)
+
+.SUFFIXES:
+.SUFFIXES: .C .C .o
+
+.C.o :;	$(CC) $(CCFLAGS) -c $*.C
+.C: $(LIB_DEPENDENCIES)
+	 $(CC) $(CCFLAGS) -o $@ $< $(CLIBS) $(FLIBS)  $(GLIBS)
+
+mappedGridExample4 = mappedGridExample4.o ChannelMapping.o
+mappedGridExample4: $(mappedGridExample4) 
+	$(CC) $(CCFLAGS) -o mappedGridExample4 $(mappedGridExample4) $(CLIBS) $(FLIBS) $(GLIBS) 
+
+mappedGridExample6 = mappedGridExample6.o getDt.o
+mappedGridExample6: $(mappedGridExample6) 
+	$(CC) $(CCFLAGS) -o mappedGridExample6 $(mappedGridExample6) $(CLIBS) $(FLIBS) $(GLIBS) 
+
+# 2d wave equation
+wave = wave.o getDt.o
+wave: $(wave) 
+	$(CC) $(CCFLAGS) -o wave $(wave) $(CLIBS) $(FLIBS) $(GLIBS) 
+
+# hyperbolic amr example
+amrHype= amrHype.o getDt.o 
+amrHype: $(amrHype) 
+	$(PURIFY) $(CC) $(CCFLAGS) $(PURIFY_OPTIONS) -o amrHype $(amrHype) $(CLIBS) $(FLIBS) $(GLIBS)
+
+
+clean:  
+	rm -f $(PROGRAMS) *.o 
+
+depend_date: depend; perl $(Overture)/config/makeDepend -f depend -Y -- $(CC_INCLUDES_FOR_DEPEND) -- $(Source)
+	touch $@
+# include the dependencies here
+include depend
+
+.PRECIOUS: depend_date
+

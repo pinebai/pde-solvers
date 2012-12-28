@@ -1,0 +1,120 @@
+# 
+# This Makefile was created by the configure script using
+# the files config/MakeDefs.sun5 and primer/Makefile.in 
+# 
+#
+# MakeDefs.sun5 : definitions for sun5 (solaris)
+#
+
+# these next values for compilers will be used unless overridden with an argument to configure
+cc = gcc
+CC = g++
+FC = f77
+
+BOOST=/home/pfast/ME/PROJECTS/BOOST/boost_1_26_0
+FLOWTOOLKIT = /home/pfast/ME/PROJECTS/CODES/FlowToolkit/src
+FTKINCLUDES = -I$(FLOWTOOLKIT) -I$(BOOST)
+
+# these next flags are compiler dependent
+cc_FLAGS = -fPIC
+CC_FLAGS = -fPIC  -fpermissive
+FF_FLAGS = -cg92 -PIC 
+
+A++ = $(APlusPlus) 
+# AppLibraries = -R $(APlusPlus) -L$(APlusPlus) -lA++ -lA++_static 
+AppLibraries = -R $(APlusPlus)/lib -L$(APlusPlus)/lib -lApp -lApp_static 
+
+Include=  $(Overture)/include 
+Lib=      $(Overture)/lib 
+LibOverture= -lOverture -lOverture_static 
+LibRapsodi= -lRapsodi -lRapsodi_static 
+
+BOXLIB_DEFS = -DBL_USE_DOUBLE -DBL_Solaris   
+
+# these next values will may be changed by the configure script
+C_OPTIMIZATION_FLAG = -g
+CPP_OPTIMIZATION_FLAG = -g
+FORTRAN_OPTIMIZATION_FLAG = -g
+
+CC_SUN5_TEMPLATEFLAG = -instances=global
+CC_SUN5_TEMPLATEFLAG =
+
+CFLAGS = $(cc_FLAGS) -I$(Include)  $(C_OPTIMIZATION_FLAG) $(FLAGS) -I$(XLIBS)/include
+# flags for c routines we always optimize
+CFLAGSO = -fast $(cc_FLAGS) -I$(Include)  $(FLAGS) -I$(XLIBS)/include
+CFLAGSO = -O $(cc_FLAGS) -I$(Include)  $(FLAGS) -I$(XLIBS)/include
+
+# do not include some paths, such as STL in the places searched by makedepend (takes too long)
+CC_INCLUDES_FOR_DEPEND =  $(FLAGS)  -I$(Include) -I$(APlusPlus)/include -I$(OpenGL)/include -I$(XLIBS)/include $(BOXLIB_DEFS) -I$(PPlusPlus)/../../include -I$(PPlusPlus)/../../PADRE/include 
+
+STL_INCLUDE = -I/home/chand/STL
+CC_INCLUDES = $(CC_FLAGS) $(CC_INCLUDES_FOR_DEPEND) $(STL_INCLUDE)
+
+CCFLAGS= $(CC_INCLUDES) $(CPP_OPTIMIZATION_FLAG) 
+
+# things that are always compile with optimization use this flag
+CCFLAGSO= $(CC_INCLUDES) -O 
+
+# things that are always compile with lots of optimization use this flag
+CCFLAGSF= $(CC_INCLUDES) -fast 
+
+# things that need to be compiled with no optimization use the following
+CCFLAGSG= $(CC_INCLUDES) -g 
+
+FFLAGS=  $(FF_FLAGS)  -r8 -i4 $(FORTRAN_OPTIMIZATION_FLAG) $(FLAGS) -I$(Include)
+# single precision always: (but keep DOUBLE definition)
+FFLAGSS=   $(FF_FLAGS) $(FORTRAN_OPTIMIZATION_FLAG) $(FLAGS) -I$(Include) 
+
+# things that are always compile with optimization use these flags
+FFLAGSO= -fast $(FF_FLAGS)  -r8 -i4  $(FLAGS) -I$(Include)  
+#g77 FFLAGSO= -O $(FF_FLAGS)  -r8 -i4  $(FLAGS) -I$(Include) 
+FFLAGSSO= -fast  $(FF_FLAGS)  $(FLAGS) -I$(Include) 
+#g77 FFLAGSSO= -O  $(FF_FLAGS)  $(FLAGS) -I$(Include)
+
+# Fortran libraries are specified here
+FORTRAN_LIBS = -lF77 -lM77 -lV77 -lnsl -lsunmath   
+# If we are using f77 with gcc we need to say which fortran libraries to use
+FORTRAN_LIBS = -L/opt/SUNWspro/SC4.2/lib/ -lF77 -lM77 -lV77 -lnsl -lsunmath 
+#g77 FORTRAN_LIBS =-lnsl -lg2c
+
+LIB_TARGETS= lib_date libso_date 
+LIB_DEPENDENCIES= ../lib/lib_date 
+TEMPLATES=  
+RAPTEMPLATES=  
+# CC V5.0 puts templates in SunWS_cache/*/*.o
+#CC5 TEMPLATES=  
+#CC5 RAPTEMPLATES=  
+
+# The KCC compiler should be used to build the static library (for templates)
+AR = ar
+#KCC AR = KCC
+ARFLAGS = ruv  
+#KCC ARFLAGS = -o 
+
+LD = $(CC)
+LDFLAGS = -R
+LD = gcc
+
+RANLIB = true 
+SOFLAGS = -G
+OpenGLibs =-lGL -lGLU -lGLw 
+# explicitly link to -lc for running with mpi
+GLIBS=  -R $(OpenGL)/lib  -L$(OpenGL)/lib $(OpenGLibs) -R $(HDF)/lib -L$(HDF)/lib -lmfhdf -ldf -ljpeg -lz -L$(MOTIF)/lib -lXm -L$(XLIBS)/lib -lXt -lXmu -lXi -lXext -lX11 -lm -lc
+
+#hdf5 GLIBS=  -R $(OpenGL)/lib  -L$(OpenGL)/lib $(OpenGLibs) -R $(HDF)/lib -L$(HDF)/lib -lhdf5 -L/usr/local/lib -lz -L$(MOTIF)/lib -lXm -L$(XLIBS)/lib -lXt -lXmu -lXi -lXext -lX11 -lm -lc
+
+
+#
+#
+# Primer examples:
+#    type `make programName' to make the example called `programName', see the
+#       possible program names below
+#    type `make' to make all examples
+#
+
+
+# dp: FFLAGS = -r8 -i4
+CLIBS=   -R $(Overture)/lib -L$(Overture)/lib $(LibOverture) $(AppLibraries) 
+
+FLIBS=   $(FORTRAN_LIBS)
+

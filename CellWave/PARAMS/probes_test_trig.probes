@@ -1,0 +1,5 @@
+#
+# probes for test_trig -- in a 20um box
+#
+# id   x     y     z
+1     10.    10.    10.

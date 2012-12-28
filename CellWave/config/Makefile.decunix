@@ -1,0 +1,94 @@
+# 
+# This Makefile was created by the configure script using
+# the files config/MakeDefs.dec and primer/Makefile.in 
+# 
+# Dec alpha with osf1:
+
+# these next values for compilers will be used unless overridden with an argument to configure
+cc = cc
+CC = cxx
+FC = f77
+
+A++ = $(APlusPlus)
+A+++ = $(APlusPlus)
+# AppLibraries = -L$(APlusPlus) -lA++ -lA++_static
+AppLibraries = -L$(APlusPlus)/lib -lApp -lApp_static
+Include=  $(Overture)/include
+Lib=      $(Overture)/lib
+LibOverture= -lOverture -lOverture_static
+LibRapsodi= -lRapsodi -lRapsodi_static 
+BOXLIB_DEFS = -DBL_USE_DOUBLE
+
+
+# these next values will may be changed by the configure script
+C_OPTIMIZATION_FLAG = -g
+CPP_OPTIMIZATION_FLAG = -g
+FORTRAN_OPTIMIZATION_FLAG = -g
+
+CFLAGS = $(C_OPTIMIZATION_FLAG) -I$(Include)  $(FLAGS) -std1 -DARCH_IEEE 
+# flags for c routines we always optimize
+CFLAGSO = -O -I$(Include)  $(FLAGS) -std1 -DARCH_IEEE 
+
+
+
+# do not include some paths, such as STL in the places searched by makedepend (takes too long)
+CC_INCLUDES_FOR_DEPEND =   -DUSE_MESA -DARCH_IEEE -Olimit 2000 $(FLAGS) -I$(Include) -I$(APlusPlus)/include -I$(OpenGL)/include -I$(XLIBS)/include $(BOXLIB_DEFS)
+
+STL_INCLUDE = 
+
+# kkc flags required for all versions of the compile, put all templates in one place.
+CCFLAGS_REQ = -ptr $(Overture)/cxx_repository
+CC_INCLUDES = $(CC_FLAGS) $(CC_INCLUDES_FOR_DEPEND) $(STL_INCLUDE) $(CCFLAGS_REQ) $(SUNDIALS_INC)
+
+CCFLAGS= $(CC_INCLUDES) $(CPP_OPTIMIZATION_FLAG)
+
+# things that are always compile with optimization use this flag
+CCFLAGSO= $(CC_INCLUDES) -O 
+
+# things that are always compile with lots of optimization use this flag
+CCFLAGSF= $(CC_INCLUDES) -O
+
+# things that need to be compiled with no optimization use the following
+CCFLAGSG= $(CC_INCLUDES) -g 
+
+
+FFLAGS=   $(FORTRAN_OPTIMIZATION_FLAG) -r8 -i4  $(FLAGS)  -I$(Include)
+# single precision always:
+FFLAGSS=  $(FORTRAN_OPTIMIZATION_FLAG)  $(FLAGS) -I$(Include)
+
+# things that are always compile with optimization use these flags
+FFLAGSO= -O $(FF_FLAGS)  -r8 -i4  $(FLAGS) -I$(Include)  
+FFLAGSSO= -O  $(FF_FLAGS)  $(FLAGS) -I$(Include) 
+
+
+# FORTRAN_LIBS = -lfor -lots -lm_4sqrt
+FORTRAN_LIBS = -lfor -lots 
+LIB_TARGETS= lib_date libso_date
+LIB_DEPENDENCIES= ../lib/lib_date 
+TEMPLATES= 
+RAPTEMPLATES=
+
+# The KCC compiler should be used to build the static library (for templates)
+AR = ar
+#KCC AR = KCC
+ARFLAGS = ruv  
+#KCC ARFLAGS = -o 
+
+LD = ld
+RANLIB = ranlib
+SOFLAGS = -shared -expect_unresolved '*' 
+OpenGLibs =-lGL -lGLU -lOSMesa 
+#LDFLAGS = -rpath 
+# kkc commented out rpath on dec, it was causing a link time error and
+#   did not appear to be needed ( -rpath apparently requires an argument )
+# wdh: added back -L (note: cxx automatically uses -rpath when calling ld)
+LDFLAGS = -L
+
+GLIBS= -L$(OpenGL)/lib $(OpenGLibs) -L$(HDF)/lib -lmfhdf -ldf -ljpeg -lz -L$(MOTIF)/lib -lXm -L$(XLIBS)/lib -lXt -lXmu -lXi -lXext -lX11 -lm
+
+# dp: FFLAGS = -r8 -i4
+CLIBS=   $(SUNDIALS_LIB) $(LDFLAGS)$(Overture)/lib $(LibOverture) $(AppLibraries) 
+
+FLIBS=   $(FORTRAN_LIBS)
+
+

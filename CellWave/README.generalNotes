@@ -1,0 +1,20 @@
+CellWave -- prototype whole cell modeling framework
+---------------------------------------------------
+* initial version will be 0.1.0
+* pre 'cellwave' is OXCWave
+* code versions/flavors:
+   cartCellWave       = embedded bdry Cartesian grids
+   overCellWave       = Overture/CellWave
+   alpha_cw_<number>  = test codes for developing ideas
+* keep repo separate from distributions
+  -- have a 'make release' target
+  -- tag the released version
+* dev versions are 0.x.y-year-mm-dd-<build number>
+  -- generate automatic build numbers
+  -- versions should be able to return their release number
+* Serial/Parallel versions
+   CellWave     single processor code
+   CellWave-MP  threaded    (pthreads or OpenMP)
+   CellWave-D   distributed (MPI)
+
+

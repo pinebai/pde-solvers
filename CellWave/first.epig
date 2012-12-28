@@ -1,0 +1,17 @@
+# .. testing epigridder
+# <vertices>
+5
+1   0 0
+2  -5 10
+3   0 20
+4  25 -5
+5  22 20
+# <edges>
+2
+1 3 1 2 3
+2 2 4 5
+# <cells>
+0
+# <tficells>
+1
+1 1 2

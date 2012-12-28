@@ -1,0 +1,129 @@
+#
+#  parameters for CellWave:
+#    Reaction model 2Buffer
+#      which is a Li-Rinzel model with 2 buffers + IP3 diffusion
+#
+
+parameter file type = 2Buffer
+ode output filename =  OUT/out_trig_2buf.dat
+pde output filename =  OUT/outpde_trig_2buf_3.dat
+comment = "none"
+#..time stepping parameters
+
+#number of timesteps = 10000
+number of timesteps = 50000
+save frequency       = 100
+maximum timestep    = 0.001
+
+#number of timesteps = 5000000
+#save frequency       = 100
+#maximum timestep    = 0.00001
+
+#time stepper        = FE
+time stepper        =  AB2
+
+#..grid parameters
+name of grid file = Grids/oocyte_1000_um.hdf
+name of show file = OUT/test_trig_2buf.show
+
+# 
+# .. model parameters
+#
+J_0                 = 1000  
+d_act               = 0.7  
+d_inh               = 0.6  
+k_on                = 2.0  
+V_m                 = 10.  
+K_p                 = 0.25  
+leak                = 1.51e-2      # = L in Table III, Slepchenko et al.
+b1 total            = 200.  
+b2 total            = 9.5     # default value from Fig. 13 in Slepchenko 
+
+K1                  = 10.
+K2                  = 0.24
+k1_on               = 1.
+k2_on               = 1.
+
+#k1_on               = 100.
+#k2_on               = 100.
+
+#..diffusions: these are D_c, D_p, and D_b1, respectively
+calcium diffusion           =    300.     # calcium diffusion
+IP3 diffusion               =    220.       #  IP3 diffusion
+b2 diffusion                =    50.      #  mobile buffer diffusion
+
+#1/sec, IP3 degradation, 0=synthetic IP3S
+k_i                           =  0.
+
+#..disable buffers at will, by default buffers are ON=1
+#b1Mask                        =  1    // set to =0 to remove buffer 1
+#b2Mask                        =  1    // set to =0 to remove buffer 2
+    
+#..initial data
+calcium_0             = 0.1153
+h_0                   = 0.43
+b1_0                  = 0.1
+b2_0                  = 0.1
+
+#..initial blob data
+#caDistribution = BlobCa;
+#ip3Distribution = HomogeneousIP3;
+
+#caDistribution  = HomogeneousCa;
+#  ip3Distribution = RadialWithGradientIP3;
+
+calcium initial data type = homogeneous
+#IP3 initial data type     = homogeneous
+IP3 initial data type     = blob
+
+## .... for Ca2+
+##blobMin_c                  = calcium_0
+#blobMax_c                  = 2.
+#xBlob_c                    = -200.
+#yBlob_c                    = 0.
+#zBlob_c                    = 0.
+#blobWidth_c                = 60.
+
+calcium_0             = 0.3
+h_0                   = 0.93
+b1_0                  = 0.1
+b2_0                  = 0.1
+ip3_0                 = 0.15
+
+#..2 Buffer extra's to get J_0 (and IP3 dynamics)
+C_er                = 10.
+nu_c                = 500.
+nu_L                = 0.01
+
+## .... for  IP3
+blobMin_p                  = 0.1
+blobMax_p                  = 0.25
+xBlob_p                    = 100.
+yBlob_p                    =   0.
+zBlob_p                    =   0.
+blobWidth_p                =  20.
+
+
+##
+## .. DIFFERENT FROM Slepchenko et al
+##
+
+#..disable buffers at will, by default buffers are ON=1
+#b1Mask                        =  0    # set to =0 to remove buffer 1
+#b2Mask                        =  0    # set to =0 to remove buffer 2
+
+## from Table II 
+J_0                 = 100
+d_act               = 0.7  
+d_inh               = 0.6  
+k_on                = 8.0  
+V_m                 = 1 .  
+K_p                 = 0.25  
+leak                = 1.51e-2      # = L in Table III, Slepchenko et al.
+b1 total            = 2.
+b2 total            = 9.5     # default value from Fig. 13 in Slepchenko 
+
+K1                  = 10.
+K2                  = 0.24
+k1_on               = 1e1
+k2_on               = 1e1

@@ -1,0 +1,6 @@
+# testNuclei.cwn -- a nucleus file for CellWave (cwn=CellWave Nucleus)
+#  format: <nucleus #> <radius> <x y z of center> <grid ID(s)>
+#  empty line ends the file
+1 50. 0. 0. 0.          1
+2 50. 200. 10. 10.      2 3 4
+3 25. -20. 0.  -100.     3 5

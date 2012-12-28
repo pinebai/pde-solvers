@@ -1,0 +1,127 @@
+#
+#  parameters for CellWave:
+#    Reaction model 2Buffer
+#      which is a Li-Rinzel model with 2 buffers + IP3 diffusion
+#    -- PURELY time-dep --> there is no diffusion
+#    -- the ode version fires periodically in time (T=8 sec period)
+#     --> but cellwave does not = bug
+#
+
+parameter file type = 2Buffer
+ode output filename =  OUT/out_trig_2buf_7.dat
+pde output filename =  OUT/outpde_trig_2buf_7.dat
+comment = "none"
+
+#..probes
+probe location filename=PARAMS/probes_test_trig.probes
+probe output filename  =OUT/probeout_test_trig.sequence
+probe frequency        =1
+
+#..time stepping parameters
+
+#number of timesteps = 10000
+#number of timesteps = 500000
+#save frequency       = 1000
+#maximum timestep    = 0.0001
+
+#number of timesteps = 1000000
+#save frequency       = 100
+#maximum timestep    = 0.00001
+
+number of timesteps = 10000
+save frequency       = 1
+maximum timestep    = 0.004
+#maximum timestep    = 0.01
+
+#save frequency       = 1
+
+#time stepper        = FE
+time stepper        =  AB2
+
+#..grid parameters
+name of grid file = Grids/cell20um.hdf
+name of show file = OUT/test_trig_2buf_7.show
+
+#..disable buffers at will, by default buffers are ON=1
+b1Mask                        =  0    # set to =0 to remove buffer 1
+b2Mask                        =  0    # set to =0 to remove buffer 2
+
+# 
+# .. model parameters
+#
+nu_L                = 0.06
+nu_c                = 460.
+d_act               = 1.3
+d_inh               = 0.55  
+d_I                 = 0.025
+V_m                 = 10.  
+K_p                 = 0.25  
+C_er                = 10.
+k_on                = 1.0 
+
+b1 total            = 2.
+b2 total            = 9.5     # default value from Fig. 13 in Slepchenko 
+
+K1                  = 10.
+K2                  = 0.24
+k1_on               = 1e2
+k2_on               = 1e2
+
+#1/sec, IP3 degradation, 0=synthetic IP3S
+k_i                           =  0.
+
+#..diffusions: these are D_c, D_p, and D_b1, respectively
+calcium diffusion           =    0.   # calcium diffusion
+IP3 diffusion               =    0.      #  IP3 diffusion
+b2 diffusion                =    0.      #  mobile buffer diffusion
+
+
+#..flux bc coefficients: note: Ca2+, IP3 and fura-2 will diffuse through GJ, but calmodulin won't
+flux bc coefficient calcium   = 0.
+flux bc coefficient IP3       = 0.
+flux bc coefficient b1        = 0.   # calmodulin --> big, bulky, and won't cross GJ
+flux bc coefficient b2        = 0.
+
+##..diffusions: these are D_c, D_p, and D_b1, respectively
+#calcium diffusion           =    300.   # calcium diffusion
+#IP3 diffusion               =    220.      #  IP3 diffusion
+#b2 diffusion                =    50.      #  mobile buffer diffusion
+
+##..flux bc coefficients: note: Ca2+, IP3 and fura-2 will diffuse through GJ, but calmodulin won't
+#flux bc coefficient calcium   = 1.
+#flux bc coefficient IP3       = 1.
+#flux bc coefficient b1        = 0.   # calmodulin --> big, bulky, and won't cross GJ
+#flux bc coefficient b2        = 1.
+
+
+#..initial data
+calcium_0             = 0.3
+h_0                   = 0.93
+b1_0                  = 0.1
+b2_0                  = 0.1
+ip3_0                 = 0.4
+#ip3_0                 = 0.15
+
+
+#..initial blob data
+#calcium initial data type = blob
+IP3 initial data type     = homogeneous
+calcium initial data type = homogeneous
+#IP3 initial data type     = blob
+
+## .... for Ca2+
+blobMin_c                  = calcium_0
+blobMax_c                  = 2.
+xBlob_c                    = 0.
+yBlob_c                    = 0.
+zBlob_c                    = 0.
+blobWidth_c                = 10.
+
+## .... for  IP3
+blobMin_p                  = 0.15
+blobMax_p                  = 2. 
+xBlob_p                    = 10.
+yBlob_p                    = 10.
+zBlob_p                    = 5.
+blobWidth_p                =  10.
+

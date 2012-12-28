@@ -1,0 +1,42 @@
+ ********************************************* 
+ ************** Ogen check file ************** 
+ ********************************************* 
+
+ This grid data is used to make sure the grid generator is giving 
+ the same answer after changes are made. Compare this file to a the 
+ check file from previous version. 
+
+grid   0 points: discretization=    5040, interpolation=      0, all=    5040, unused=       0, name=cell1
+grid   1 points: discretization=    3456, interpolation=      0, all=    3456, unused=       0, name=cell2
+grid   2 points: discretization=    2784, interpolation=      0, all=    2784, unused=       0, name=cell3
+grid   3 points: discretization=    6256, interpolation=      0, all=    6256, unused=       0, name=cell4
+grid   4 points: discretization=    6480, interpolation=      0, all=    6480, unused=       0, name=cell5
+grid   5 points: discretization=    1920, interpolation=      0, all=    1920, unused=       0, name=cell6
+grid   6 points: discretization=    2816, interpolation=      0, all=    2816, unused=       0, name=cell7
+grid   7 points: discretization=    3696, interpolation=      0, all=    3696, unused=       0, name=cell8
+grid   8 points: discretization=    4480, interpolation=      0, all=    4480, unused=       0, name=cell9
+grid   9 points: discretization=    3168, interpolation=      0, all=    3168, unused=       0, name=cell10
+grid  10 points: discretization=    4896, interpolation=      0, all=    4896, unused=       0, name=cell11
+grid  11 points: discretization=    1680, interpolation=      0, all=    1680, unused=       0, name=cell12
+grid  12 points: discretization=    3584, interpolation=      0, all=    3584, unused=       0, name=cell13
+grid  13 points: discretization=    3120, interpolation=      0, all=    3120, unused=       0, name=cell14
+grid  14 points: discretization=    5376, interpolation=      0, all=    5376, unused=       0, name=cell15
+grid  15 points: discretization=    3072, interpolation=      0, all=    3072, unused=       0, name=cell16
+grid  16 points: discretization=    3808, interpolation=      0, all=    3808, unused=       0, name=cell17
+grid  17 points: discretization=    3952, interpolation=      0, all=    3952, unused=       0, name=cell18
+grid  18 points: discretization=    4800, interpolation=      0, all=    4800, unused=       0, name=cell19
+grid  19 points: discretization=    4032, interpolation=      0, all=    4032, unused=       0, name=cell20
+grid  20 points: discretization=    5712, interpolation=      0, all=    5712, unused=       0, name=cell21
+grid  21 points: discretization=    9744, interpolation=      0, all=    9744, unused=       0, name=cell22
+grid  22 points: discretization=   11136, interpolation=      0, all=   11136, unused=       0, name=cell23
+grid  23 points: discretization=    4032, interpolation=      0, all=    4032, unused=       0, name=cell24
+grid  24 points: discretization=   10656, interpolation=      0, all=   10656, unused=       0, name=cell25
+grid  25 points: discretization=    4608, interpolation=      0, all=    4608, unused=       0, name=cell26
+grid  26 points: discretization=    1936, interpolation=      0, all=    1936, unused=       0, name=cell27
+grid  27 points: discretization=    7920, interpolation=      0, all=    7920, unused=       0, name=cell28
+grid  28 points: discretization=    3456, interpolation=      0, all=    3456, unused=       0, name=cell29
+grid  29 points: discretization=    3360, interpolation=      0, all=    3360, unused=       0, name=cell30
+grid  30 points: discretization=    2880, interpolation=      0, all=    2880, unused=       0, name=cell31
+grid  31 points: discretization=    4416, interpolation=      0, all=    4416, unused=       0, name=cell32
+grid  32 points: discretization=    1632, interpolation=      0, all=    1632, unused=       0, name=cell33
+total    points: discretization=  149904, interpolation=      0, all=  149904, unused=       0

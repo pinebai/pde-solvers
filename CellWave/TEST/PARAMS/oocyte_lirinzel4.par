@@ -1,0 +1,86 @@
+parameter file type = LiRinzelWagner 
+ode output filename =  OUT/out_lirinzel.dat
+comment = "none"
+#..time stepping parameters
+
+number of timesteps = 4000
+#number of timesteps = 500
+save frequency       = 10
+maximum timestep    = 0.1
+#time stepper        = FE
+time stepper        =  AB2
+
+#..grid parameters
+#name of grid file = Grids/square300um.hdf
+#name of show file = OUT/square02.show
+
+name of grid file = Grids/oocyte.hdf
+name of show file = OUT/debug_ooc6.show
+
+#..biological model parameters
+#calcium rescale     =  1.0  # no scaling
+
+  #....initial data
+  calcium_0  = 0.1153   # micro M
+  ip3_0      = 0.12     # micro M
+  h_0        = 0.43     # nondimensional
+
+#   --> lower reststate not stable with these
+#   ip3_0      = 0.3
+#  h_0        = 0.93     # nondimensional
+
+    #....initial data: IP3 blob
+##    blobMin_p    = 
+#    blobMax_p    =  1.1
+#    xBlob_p      =  100. 
+#    yBlob_p      =  100.
+#    zBlob_p      =  0.
+#    blobWidth_p  =  100
+
+    blobMax_c    =  1.1
+    xBlob_c      =  100. 
+    yBlob_c      =  100.
+    zBlob_c      =  0.
+    blobWidth_c  =  100
+
+
+    #....rxn parameters
+#    nu_L       = 4e-3  # nondimensional  # no lower equil. in [Ca2+]
+    nu_L       = 5e-4  # nondimensional  # no lower equil. in [Ca2+]
+
+    d_I        = 0.025 # micro M  = d1
+    k_p        = 0.4   # micro M
+    nu_P       = 0.1   # micro M
+#    nu_P       = 0.1   # micro M
+    I_s        = 0.12  # micro M
+    C_er       = 10.   # micro M
+    tau_0      = 4.    # sec
+    d_act      = 1.2   # micro M = d5
+        diffCalcium= 300.  # micro m^2/sec
+    #diffCalcium =0. #TRY THIS
+
+    lambda     = 112.5 # 1/sec
+    #lambda     = 250    # 1/sec
+    beta       = 0.053 # nondimensional
+    d_inh      = 1.5   # micro M
+
+    # ..parameters NOT USED BY WAGNER et al
+    diffIP3    = 0. #300.;   # IP3 diffusion
+    k_i        = 0. # 1/sec, IP3 degradation, 0=synthetic IP3S
+
+    #diffIP3    = 300. #300.;   # IP3 diffusion
+    #k_i        = 0. # 1/sec, IP3 degradation, 0=synthetic IP3S
+
+
+#
+# ......... CHANGES TO WAGNER
+#
+#    beta = 0.2
+
+
+    # .. one d parameters
+    npoints oned = 500
+    xbegin oned      = -500.
+    xend oned        = 500; 
+
+

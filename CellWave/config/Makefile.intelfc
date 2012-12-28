@@ -1,0 +1,97 @@
+# linux with dynamic libraries (requires ecgs compiler)
+
+# these next values for compilers will be used unless overridden with an argument to configure
+cc = gcc
+CC = g++
+FC = ifc
+
+#BOOST=/home/software/BOOST/boost_1_26_0
+#FLOWTOOLKIT = /home/pfast/PROJECTS/FlowToolkit/src
+#FTKINCLUDES = -I$(FLOWTOOLKIT) -I$(BOOST)
+
+A++ = $(APlusPlus)
+A+++ = $(APlusPlus)
+# AppLibraries = -L$(APlusPlus) -lA++ -lA++_static
+AppLibraries = -L$(APlusPlus)/lib -lApp -lApp_static 
+
+Include=  $(Overture)/include
+Lib=      $(Overture)/lib
+LibOverture= -lOverture -lOverture_static
+BOXLIB_DEFS = -DBL_USE_DOUBLE -DBL_Solaris
+
+# these next flags are compiler dependent
+cc_FLAGS = -fPIC -Wno-deprecated
+CC_FLAGS = -fPIC  -fpermissive -Wno-deprecated
+FF_FLAGS = -fPIC -I$(F2C_INCLUDE)
+
+# these next values will may be changed by the configure script
+C_OPTIMIZATION_FLAG = -g
+CPP_OPTIMIZATION_FLAG = -g
+FORTRAN_OPTIMIZATION_FLAG = -g
+
+CFLAGS =  $(cc_FLAGS)  -I$(Include)  $(C_OPTIMIZATION_FLAG) -I$(XLIBS) -DSHM
+# flags for c routines we always optimize
+CFLAGSO =  -O $(cc_FLAGS)  -I$(Include)  -I$(XLIBS) -DSHM
+
+# do not include some paths, such as STL in the places searched by makedepend (takes too long)
+CC_INCLUDES_FOR_DEPEND =  -I$(Include)  $(CPP_OPTIMIZATION_FLAG) -DINTEL86  -I$(APlusPlus)/include -I$(OpenGL)/include -I$(XLIBS)/include  $(BOXLIB_DEFS)
+
+STL_INCLUDE = 
+CC_INCLUDES = $(CC_FLAGS) $(CC_INCLUDES_FOR_DEPEND) $(STL_INCLUDE) $(SUNDIALS_INC)
+
+CCFLAGS= $(CC_INCLUDES) $(CPP_OPTIMIZATION_FLAG)
+
+# things that are always compile with optimization use this flag
+CCFLAGSO= $(CC_INCLUDES) -O
+
+# things that need to be compiled with no optimization use the following
+CCFLAGSG= $(CC_INCLUDES) -g
+
+# Notes: There seems to be problems using -O with g77
+#        Some older versions of the egcs compiler also had trouble with -fPIC, removing it seemed to work.
+FFLAGS=    $(FF_FLAGS)   -r8 $(FORTRAN_OPTIMIZATION_FLAG) -I$(Include)
+# single precision always:
+FFLAGSS=  $(FF_FLAGS)  $(FORTRAN_OPTIMIZATION_FLAG)  -I$(Include)
+FFLAGSSO = ${FF_FLAGS}  -I$(Include) -O
+FFLAGSO = $(FF_FLAGS)  -r8 -O -I$(Include)
+
+# things that are always compile with optimization use these flags
+FFLAGSO= -O $(FF_FLAGS)  -r8  $(FLAGS) -I$(Include) 
+FFLAGSSO= -O  $(FF_FLAGS)  $(FLAGS) -I$(Include)
+
+
+FORTRAN_LIBS = 
+#FORTRAN_LIBS =-lnsl -lg2c
+#FORTRAN_LIBS =  -L/usr/apps/pgi/3.3/linux86/lib -lpgftnrtl -lpgmp  -lpgc -lstd
+FORTRAN_LIBS = -L/opt/intel/compiler60/ia32/lib -lF90 -lIEPCF90 -L/usr/lib/gcc-lib/i386-redhat-linux/2.96 -lg2c
+
+LIB_TARGETS= lib_date libso_date
+LIB_DEPENDENCIES= ../lib/lib_date
+TEMPLATES=  
+
+# The KCC compiler should be used to build the static library (for templates)
+AR = ar
+#KCC AR = KCC
+ARFLAGS = ruv  
+#KCC ARFLAGS = -o 
+
+LD = $(CC)
+#LDFLAGS = -Wl,-rpath $(Overture)/lib
+LDFLAGS = -L$(Overture)/lib
+RANLIB = ranlib
+SOFLAGS = -shared
+OpenGLibs =-lGL -lGLU -lGLw -lOSMesa
+GLIBS=   -L$(OpenGL)/lib $(OpenGLibs) -L$(HDF)/lib -lmfhdf -ldf -ljpeg -lz -L$(MOTIF)/lib -lXm  -lXpm -lXp -L$(XLIBS)/lib -lXt -lXmu -lXi -lXext -lX11 -lm
+#
+#
+# Primer examples:
+#    type `make programName' to make the example called `programName', see the
+#       possible program names below
+#    type `make' to make all examples
+#
+
+
+# dp: FFLAGS = -r8 -i4
+CLIBS=  $(SUNDIALS_LIB) $(LDFLAGS) -L$(Overture)/lib $(LibOverture) $(AppLibraries)
+
+FLIBS=   $(FORTRAN_LIBS)

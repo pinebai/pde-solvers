@@ -1,0 +1,24 @@
+#
+# ..testDiffusion -- 2D resolution study
+#
+parameter file type= test diffusion
+
+interactive         = no
+output              = no
+
+name of grid file=Grids/square22.hdf
+name of show file=OUT/td_test2D_rez22.show
+
+maximum timestep    = 0.01
+number of timesteps = 100
+save frequency      = 1
+
+#..gaussian info
+time offset = 0.1
+x offset    = 0.
+y offset    = 0.
+z offset    = 0.
+total mass  = 1.
+
+
+

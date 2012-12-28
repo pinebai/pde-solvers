@@ -1,0 +1,7 @@
+#
+# probe xyz for testProbes.C
+# format:
+# id x y z
+1 0.     20.   0.
+2 100.   0.   0.
+3 0.   150.   0.
