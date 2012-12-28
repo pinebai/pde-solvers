@@ -1,6 +1,5 @@
 CellWave -- prototype whole cell modeling framework
 ---------------------------------------------------
-* initial version will be 0.1.0
 * pre 'cellwave' is OXCWave
 * code versions/flavors:
    cartCellWave       = embedded bdry Cartesian grids
