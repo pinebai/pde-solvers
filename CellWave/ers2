@@ -1,2 +1,0 @@
-g++  -I. -I/export/0/pfast.0/software/BOOST/boost_1_26_0 -IAlpha_cw -fPIC  -fpermissive -Wno-deprecated -I/export/0/pfast.0/overture/OvertureCVS_2002_08_08/OvertureBuild.g/include  -g -DINTEL86  -I/export/0/pfast.0/software/A++P++-0.7.6b-gcc3.0.3/A++/A++/lib/LINUX_gcc_g++/include -I/export/0/pfast.0/software/OpenGL/Mesa-4.0.2/include -I/usr/X11R6/include  -DBL_USE_DOUBLE -DBL_Solaris  -g -c GenericSolver.C -o GenericSolver.o
-make: *** [GenericSolver.o] Interrupt
